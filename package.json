@@ -1,0 +1,29 @@
+{
+  "name": "strve-sfc",
+  "version": "5.1.1",
+  "description": "This JavaScript library is used to develop Strve single file components.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maomincoding/strve-sfc.git"
+  },
+  "private": false,
+	"keywords": [
+		"strve",
+		"strvejs",
+    "sfc",
+    "SFC",
+		"dom",
+		"mvvm",
+		"virtual dom",
+		"html",
+		"template",
+		"string"
+	],
+	"author": "maomincoding",
+	"license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maomincoding/strve-sfc/issues"
+  },
+  "homepage": "https://github.com/maomincoding/strve-sfc#readme"
+}
