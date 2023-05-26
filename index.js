@@ -1,7 +1,7 @@
 /**
  * @name strve-sfc
  * @description This JavaScript library is used to develop Strve single file components.
- * @version 5.1.1
+ * @version 6.0.0
  * @author maomincoding
  */
 
@@ -370,18 +370,28 @@ function updateTextNode(val, el) {
     el.textContent = val ? val.toString() : String(val);
   }
 }
+
 let mountHook = null;
 function onMounted(fn) {
-  mountHook = fn;
+  if (getType(fn) === "function") {
+    mountHook = fn;
+  }
 }
+
 let unMountedHook = null;
 function onUnmounted(fn) {
-  unMountedHook = fn;
+  if (getType(fn) === "function") {
+    unMountedHook = fn;
+  }
 }
+
 let nextTickHook = null;
 function nextTick(fn) {
-  nextTickHook = fn;
+  if (getType(fn) === "function") {
+    nextTickHook = fn;
+  }
 }
+
 function mountNode(dom, selector, status, name) {
   if (!state.isMounted) {
     const _template = useFragmentNode(dom);
@@ -405,7 +415,14 @@ function setData(callback, options) {
         callback();
       })
       .then(() => {
-        if (options && options.name === "useCustomElement") {
+        if (options && options.status === "useRouter") {
+          unMountedHook && unMountedHook();
+          state._el.innerHTML = "";
+          unMountedHook = null;
+          state.isMounted = false;
+          const tem = transformTagFn(state._template())();
+          mountNode(tem, state._el);
+        } else if (options && options.name === "useCustomElement") {
           const oldTree = _components.get(
             _com_[options.customElement.id]
           ).template;
@@ -525,7 +542,7 @@ function defineCustomElement(options, tag) {
   }
 }
 
-const version = "5.1.1";
+const version = "6.0.0";
 const state = {
   _el: null,
   _template: null,
@@ -827,7 +844,7 @@ function compilerTemplate(_tem, _data, id) {
 function transformTagFn(...values) {
   const strings = [];
 
-  values.forEach((value, i) => {
+  values.forEach((value) => {
     strings.push(String(value));
   });
   return h.bind(this, strings);

@@ -1,6 +1,6 @@
 {
   "name": "strve-sfc",
-  "version": "5.1.1",
+  "version": "6.0.0",
   "description": "This JavaScript library is used to develop Strve single file components.",
   "main": "index.js",
   "repository": {

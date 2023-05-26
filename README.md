@@ -1,4 +1,4 @@
-# strve-sfc.js
+# strve-sfc
 
 This JavaScript library is used to develop Strve single file components.
 
@@ -6,62 +6,12 @@ If you don't like the way template strings are written, the single-file componen
 
 Please use it with `vite-plugin-strve`.
 
-## Version
+## Documentation
 
-The latest version is **5.1.1** . This version will be the same as the Strve.js version.
+To learn more about Strve, check [its documentation](https://maomincoding.github.io/strve-doc/other/sfc/).
 
-## Usage
+## License
 
-Before using, please read the following precautions to be compatible with Strve.js.
+[MIT](http://opensource.org/licenses/MIT)
 
-- Event Handling
-
-Only the `@` abbreviation is supported. In addition, event names need to be bound to a namespace and wrapped in quotation marks. For example, `@click="myComponent2.btn"`.
-
-- List Rendering
-
-Use `join(')` to remove excess commas from the rendered result page. Such as:
-
-```js
-${arr.map((todo) => `<li>${todo}</li>`).join('')}
-```
-
-- Conditional Rendering
-
-Label using ` `` ` package. Such as:
-
-```js
-${isShow ? `<p $key>Strve.js</p>` : `<null $key></null>`}
-```
-
-- Property Binding
-
-Properties can be bound without quotation marks, such as: `value=${msg}`.
-
-- Named Function Component
-
-Do not support.
-
-- Web Components
-
-Support.
-
-- Component Mode
-
-Do not support.
-
-- Registered Component
-
-Call a function. Such as:
-
-```js
-`${C2()}`;
-```
-
-- strveRouter
-
-Do not support.
-
-- babelPluginStrve
-
-Do not support.
+Copyright (c) 2023-present, maomincoding
